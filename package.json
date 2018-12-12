@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server -d",
+    "start": "cross-env NODE_ENV=development node start.js",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest"
   },
@@ -45,6 +45,7 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
+    "skiller-whale-sync": "git:github.com/hcarver/skiller-whale-sync.git",
     "faker": "^4.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
