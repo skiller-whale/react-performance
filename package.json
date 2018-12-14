@@ -45,7 +45,7 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
-    "skiller-whale-sync": "git:github.com/hcarver/skiller-whale-sync.git",
+    "skiller-whale-sync": "^1.0.0",
     "faker": "^4.1.0",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
