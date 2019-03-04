@@ -1,6 +1,25 @@
 import React from 'react';
 import faker from 'faker';
 
+class CustomerRow extends React.Component {
+  render() {
+    return <tr>
+      <td>
+        {this.props.customer.name.first}
+        {' '}
+        {this.props.customer.name.last}
+      </td>
+      <td>
+        {this.props.customer.email}
+      </td>
+      <td>
+        $
+        {this.props.customer.amountSpent}
+      </td>
+    </tr>
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -92,23 +111,8 @@ class App extends React.Component {
   render() {
     const { customers, } = this.state;
     const rows = customers.map(
-      ({ name, email, amountSpent }) => {
-        return (
-          <tr>
-            <td>
-              {name.first}
-              {' '}
-              {name.last}
-            </td>
-            <td>
-              {email}
-            </td>
-            <td>
-              $
-              {amountSpent}
-            </td>
-          </tr>
-        );
+      customer => {
+        return <CustomerRow customer={customer} />;
       }
     );
 
