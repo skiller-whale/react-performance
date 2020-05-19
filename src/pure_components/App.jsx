@@ -1,7 +1,7 @@
 import React from 'react';
 import faker from 'faker';
 
-class CustomerRow extends React.PureComponent {
+class CustomerRow extends React.Component {
   render() {
     return <tr>
       <td>
