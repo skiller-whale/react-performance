@@ -160,7 +160,7 @@ class App extends React.Component {
 
     return (
       <div className="container">
-        <h5>Edit me in src/App.jsx</h5>
+        <h5>Edit me in src/measuring/App.jsx</h5>
         <h1>Our customers</h1>
         <div className="row">
           <div className="col-lg-6 col-md-12">
