@@ -1,6 +1,7 @@
 import { useState } from "react"
+import FormSubmitButton from "./FormSubmitButton"
 
-const NewCustomerForm = ({ addCustomer }) => {
+const NewCustomerForm = ({ addNewCustomer }) => {
   const [newFirstName, setNewFirstName] = useState("")
   const [newLastName, setNewLastName] = useState("")
   const [newEmail, setNewEmail] = useState("")
@@ -10,11 +11,13 @@ const NewCustomerForm = ({ addCustomer }) => {
       className="form"
       onSubmit={(event) => {
         event.preventDefault()
-        addCustomer(newFirstName, newLastName, newEmail, newAmountSpent)
-        setNewFirstName("")
-        setNewLastName("")
-        setNewEmail("")
-        setNewAmountSpent("")
+        if (newFirstName && newLastName) {
+          addNewCustomer(newFirstName, newLastName, newEmail, newAmountSpent)
+          setNewFirstName("")
+          setNewLastName("")
+          setNewEmail("")
+          setNewAmountSpent("")
+        }
       }}
     >
       <div className="form-group">
@@ -44,9 +47,9 @@ const NewCustomerForm = ({ addCustomer }) => {
         />
       </div>
       <div className="form-group">
-        <button type="submit" className="btn btn-default">
-          Create customer {newFirstName} {newLastName}
-        </button>
+        <FormSubmitButton
+          text={`Create customer ${newFirstName} ${newLastName}`}
+        />
       </div>
     </form>
   )

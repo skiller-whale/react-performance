@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { generateCustomers, addCustomer } from "../lib/Customers"
 import CustomerTable from "./CustomerTable"
-import FormSubmitButton from "./FormSubmitButton"
 
 const App = () => {
   const initialCustomers = 200
+
   const [customers, setCustomers] = useState(
     generateCustomers(initialCustomers)
   )
@@ -12,25 +12,10 @@ const App = () => {
   const [newLastName, setNewLastName] = useState("")
   const [newEmail, setNewEmail] = useState("")
   const [newAmountSpent, setNewAmountSpent] = useState("")
-  const addNewCustomer = (
-    newFirstName,
-    newLastName,
-    newEmail,
-    newAmountSpent
-  ) => {
-    setCustomers(
-      addCustomer(
-        customers,
-        newFirstName,
-        newLastName,
-        newEmail,
-        newAmountSpent
-      )
-    )
-  }
+
   return (
     <div className="container">
-      <h5>Edit me in src/measuring/App.jsx</h5>
+      <h5>Edit me in src/pure_components/App.jsx</h5>
       <h1>Our customers</h1>
       <div className="row">
         <div className="col-lg-6 col-md-12">
@@ -39,11 +24,14 @@ const App = () => {
             onSubmit={(event) => {
               event.preventDefault()
               if (newFirstName && newLastName) {
-                addNewCustomer(
-                  newFirstName,
-                  newLastName,
-                  newEmail,
-                  newAmountSpent
+                setCustomers(
+                  addCustomer(
+                    customers,
+                    newFirstName,
+                    newLastName,
+                    newEmail,
+                    newAmountSpent
+                  )
                 )
                 setNewFirstName("")
                 setNewLastName("")
@@ -81,9 +69,9 @@ const App = () => {
               />
             </div>
             <div className="form-group">
-              <FormSubmitButton
-                text={`Create customer ${newFirstName} ${newLastName}`}
-              />
+              <button type="submit" className="btn btn-default">
+                Create customer
+              </button>
             </div>
           </form>
         </div>
@@ -92,4 +80,5 @@ const App = () => {
     </div>
   )
 }
+
 export default App

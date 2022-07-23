@@ -1,20 +1,33 @@
 import { useState } from "react"
+import FormSubmitButton from "./FormSubmitButton"
 
-const NewCustomerForm = ({ addCustomer }) => {
+type Props = {
+  addNewCustomer: (
+    firstName: string,
+    lastName: string,
+    email: string,
+    amountSpent: string
+  ) => void
+}
+
+const NewCustomerForm = ({ addNewCustomer }: Props) => {
   const [newFirstName, setNewFirstName] = useState("")
   const [newLastName, setNewLastName] = useState("")
   const [newEmail, setNewEmail] = useState("")
   const [newAmountSpent, setNewAmountSpent] = useState("")
+
   return (
     <form
       className="form"
       onSubmit={(event) => {
         event.preventDefault()
-        addCustomer(newFirstName, newLastName, newEmail, newAmountSpent)
-        setNewFirstName("")
-        setNewLastName("")
-        setNewEmail("")
-        setNewAmountSpent("")
+        if (newFirstName && newLastName) {
+          addNewCustomer(newFirstName, newLastName, newEmail, newAmountSpent)
+          setNewFirstName("")
+          setNewLastName("")
+          setNewEmail("")
+          setNewAmountSpent("")
+        }
       }}
     >
       <div className="form-group">
@@ -44,11 +57,12 @@ const NewCustomerForm = ({ addCustomer }) => {
         />
       </div>
       <div className="form-group">
-        <button type="submit" className="btn btn-default">
-          Create customer {newFirstName} {newLastName}
-        </button>
+        <FormSubmitButton
+          text={`Create customer ${newFirstName} ${newLastName}`}
+        />
       </div>
     </form>
   )
 }
+
 export default NewCustomerForm
