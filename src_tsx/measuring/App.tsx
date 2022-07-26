@@ -5,6 +5,7 @@ import FormSubmitButton from "./FormSubmitButton"
 
 const App = () => {
   const initialCustomers = 200
+
   const [customers, setCustomers] = useState(
     generateCustomers(initialCustomers)
   )
@@ -12,11 +13,12 @@ const App = () => {
   const [newLastName, setNewLastName] = useState("")
   const [newEmail, setNewEmail] = useState("")
   const [newAmountSpent, setNewAmountSpent] = useState("")
+
   const addNewCustomer = (
-    newFirstName,
-    newLastName,
-    newEmail,
-    newAmountSpent
+    newFirstName: string,
+    newLastName: string,
+    newEmail: string,
+    newAmountSpent: string
   ) => {
     setCustomers(
       addCustomer(
@@ -28,6 +30,7 @@ const App = () => {
       )
     )
   }
+
   return (
     <div className="container">
       <h5>Edit me in src/measuring/App.jsx</h5>
@@ -92,4 +95,5 @@ const App = () => {
     </div>
   )
 }
+
 export default App

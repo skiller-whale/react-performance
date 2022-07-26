@@ -1,10 +1,20 @@
 import { useState } from "react"
 
-const NewCustomerForm = ({ addCustomer }) => {
+type Props = {
+  addCustomer: (
+    firstName: string,
+    lastName: string,
+    email: string,
+    amountSpent: string
+  ) => void
+}
+
+const NewCustomerForm = ({ addCustomer }: Props) => {
   const [newFirstName, setNewFirstName] = useState("")
   const [newLastName, setNewLastName] = useState("")
   const [newEmail, setNewEmail] = useState("")
   const [newAmountSpent, setNewAmountSpent] = useState("")
+
   return (
     <form
       className="form"
@@ -51,4 +61,5 @@ const NewCustomerForm = ({ addCustomer }) => {
     </form>
   )
 }
+
 export default NewCustomerForm
