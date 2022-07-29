@@ -7,7 +7,7 @@ type Props = {
 
 const CustomerTable = ({ customers }: Props) => {
   const rows = customers.map((customer, index) => (
-    <CustomerRow customer={customer} key={index} />
+    <CustomerRow key={index} {...customer} />
   ))
 
   return (

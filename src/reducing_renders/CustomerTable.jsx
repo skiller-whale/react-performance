@@ -2,7 +2,7 @@ import CustomerRow from "./CustomerRow"
 
 const CustomerTable = ({ customers }) => {
   const rows = customers.map((customer, index) => (
-    <CustomerRow customer={customer} key={index} />
+    <CustomerRow key={index} {...customer} />
   ))
   return (
     <table className="table table-striped table-bordered table-hover">

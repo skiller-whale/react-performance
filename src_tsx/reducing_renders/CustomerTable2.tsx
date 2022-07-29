@@ -1,5 +1,5 @@
 import { type Customer } from "../lib/Customers"
-import CustomerRow from "./CustomerRow"
+import CustomerRow from "./CustomerRow2"
 
 type Props = {
   customers: Customer[]
@@ -7,15 +7,13 @@ type Props = {
 
 const CustomerTable = ({ customers }: Props) => {
   const rows = customers.map((customer) => {
-    return (
-      <CustomerRow
-        firstName={customer.name.first}
-        lastName={customer.name.last}
-        email={customer.email}
-        amountSpent={customer.amountSpent}
-        key={customer.email}
-      />
-    )
+    const customerRowProp = {
+      firstName: customer.name.first,
+      lastName: customer.name.last,
+      email: customer.email,
+      amountSpent: customer.amountSpent,
+    }
+    return <CustomerRow key={customer.email} customer={customerRowProp} />
   })
 
   return (

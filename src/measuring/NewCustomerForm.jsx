@@ -1,56 +1,48 @@
 import { useState } from "react"
-import FormSubmitButton from "./FormSubmitButton"
+import { Button, Buttons, Input } from "./FormComponents"
 
 const NewCustomerForm = ({ addNewCustomer }) => {
   const [newFirstName, setNewFirstName] = useState("")
   const [newLastName, setNewLastName] = useState("")
   const [newEmail, setNewEmail] = useState("")
   const [newAmountSpent, setNewAmountSpent] = useState("")
+  const createCustomer = () => {
+    if (newFirstName && newLastName) {
+      addNewCustomer(newFirstName, newLastName, newEmail, newAmountSpent)
+      setNewFirstName("")
+      setNewLastName("")
+      setNewEmail("")
+      setNewAmountSpent("")
+    }
+  }
   return (
-    <form
-      className="form"
-      onSubmit={(event) => {
-        event.preventDefault()
-        if (newFirstName && newLastName) {
-          addNewCustomer(newFirstName, newLastName, newEmail, newAmountSpent)
-          setNewFirstName("")
-          setNewLastName("")
-          setNewEmail("")
-          setNewAmountSpent("")
-        }
-      }}
-    >
-      <div className="form-group">
-        <input
-          placeholder="first name"
-          className="form-control"
-          onChange={(event) => setNewFirstName(event.currentTarget.value)}
-          value={newFirstName}
-        />
-        <input
-          placeholder="last name"
-          className="form-control"
-          onChange={(event) => setNewLastName(event.currentTarget.value)}
-          value={newLastName}
-        />
-        <input
-          placeholder="email"
-          className="form-control"
-          onChange={(event) => setNewEmail(event.currentTarget.value)}
-          value={newEmail}
-        />
-        <input
-          placeholder="amount spent"
-          className="form-control"
-          onChange={(event) => setNewAmountSpent(event.currentTarget.value)}
-          value={newAmountSpent}
-        />
-      </div>
-      <div className="form-group">
-        <FormSubmitButton
+    <form className="form">
+      <Input
+        placeholder="first name"
+        onChange={(event) => setNewFirstName(event.currentTarget.value)}
+        value={newFirstName}
+      />
+      <Input
+        placeholder="last name"
+        onChange={(event) => setNewLastName(event.currentTarget.value)}
+        value={newLastName}
+      />
+      <Input
+        placeholder="email"
+        onChange={(event) => setNewEmail(event.currentTarget.value)}
+        value={newEmail}
+      />
+      <Input
+        placeholder="amount spent"
+        onChange={(event) => setNewAmountSpent(event.currentTarget.value)}
+        value={newAmountSpent}
+      />
+      <Buttons>
+        <Button
           text={`Create customer ${newFirstName} ${newLastName}`}
+          onClick={createCustomer}
         />
-      </div>
+      </Buttons>
     </form>
   )
 }

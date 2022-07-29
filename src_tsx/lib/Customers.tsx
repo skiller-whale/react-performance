@@ -32,6 +32,16 @@ export const addCustomer = (
   return sortCustomers(newCustomers)
 }
 
+export const deleteCustomer = (
+  customers: Customer[],
+  email: string
+): Customer[] => {
+  const index = customers.findIndex((customer) => customer.email === email)
+  return index > -1
+    ? [...customers.slice(0, index), ...customers.slice(index + 1)]
+    : customers
+}
+
 const generateCustomer = (): Customer => ({
   name: {
     first: faker.name.firstName(),
