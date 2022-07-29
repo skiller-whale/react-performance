@@ -5,7 +5,7 @@ import {
   deleteCustomer,
 } from "../lib/Customers"
 import NewCustomerForm from "./NewCustomerForm"
-import CustomerTable from "./CustomerTable2"
+import CustomerTable from "./CustomerTable"
 
 const App = () => {
   const initialCustomers = 200

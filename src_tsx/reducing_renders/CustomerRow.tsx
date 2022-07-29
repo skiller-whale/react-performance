@@ -19,4 +19,4 @@ const CustomerRow = ({ name, email, amountSpent }: Props) => (
   </tr>
 )
 
-export default memo(CustomerRow)
+export default CustomerRow

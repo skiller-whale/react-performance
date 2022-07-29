@@ -9,4 +9,4 @@ const CustomerRow = ({ name, email, amountSpent }) => (
     <td>${amountSpent}</td>
   </tr>
 )
-export default memo(CustomerRow)
+export default CustomerRow
