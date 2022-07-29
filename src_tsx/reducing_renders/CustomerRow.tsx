@@ -1,17 +1,22 @@
-import { type Customer } from "../lib/Customers"
+import { memo } from "react"
 
 type Props = {
-  customer: Customer
+  name: {
+    first: string
+    last: string
+  }
+  email: string
+  amountSpent: string
 }
 
-const CustomerRow = ({ customer }: Props) => (
+const CustomerRow = ({ name, email, amountSpent }: Props) => (
   <tr>
     <td>
-      {customer.name.first} {customer.name.last}
+      {name.first} {name.last}
     </td>
-    <td>{customer.email}</td>
-    <td>${customer.amountSpent}</td>
+    <td>{email}</td>
+    <td>${amountSpent}</td>
   </tr>
 )
 
-export default CustomerRow
+export default memo(CustomerRow)

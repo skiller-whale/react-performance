@@ -1,16 +1,14 @@
-import CustomerRow from "./CustomerRow"
+import CustomerRow from "./CustomerRow2"
 
 const CustomerTable = ({ customers }) => {
   const rows = customers.map((customer) => {
-    return (
-      <CustomerRow
-        firstName={customer.name.first}
-        lastName={customer.name.last}
-        email={customer.email}
-        amountSpent={customer.amountSpent}
-        key={customer.email}
-      />
-    )
+    const customerRowProp = {
+      firstName: customer.name.first,
+      lastName: customer.name.last,
+      email: customer.email,
+      amountSpent: customer.amountSpent,
+    }
+    return <CustomerRow key={customer.email} customer={customerRowProp} />
   })
   return (
     <table className="table table-striped table-bordered table-hover">

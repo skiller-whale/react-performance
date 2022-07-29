@@ -1,10 +1,12 @@
-const CustomerRow = ({ customer }) => (
+import { memo } from "react"
+
+const CustomerRow = ({ name, email, amountSpent }) => (
   <tr>
     <td>
-      {customer.name.first} {customer.name.last}
+      {name.first} {name.last}
     </td>
-    <td>{customer.email}</td>
-    <td>${customer.amountSpent}</td>
+    <td>{email}</td>
+    <td>${amountSpent}</td>
   </tr>
 )
-export default CustomerRow
+export default memo(CustomerRow)

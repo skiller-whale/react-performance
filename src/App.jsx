@@ -1,6 +1,8 @@
 const App = () => (
-  <div className="container">
-    <h1>App</h1>
+  <div className="p-3">
+    <div className="alert alert-success">
+      Hello Whale! It looks like you're all set up.
+    </div>
   </div>
 )
 export default App
